@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changeset/create-owners-table.yaml
+  - include:
+      file: db/changelog/changeset/create-adverts-table.yaml
+  - include:
+      file: db/changelog/changeset/create-owner-phones-table.yaml
+  - include:
+      file: db/changelog/changeset/create-images-table.yaml

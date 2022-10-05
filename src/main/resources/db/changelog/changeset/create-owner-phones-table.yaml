@@ -1,0 +1,29 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-owner-phones
+      author: Vladislav
+      changes:
+        - createTable:
+            tableName: owner_phones
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: number
+                  type: varchar(16)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: owner_id
+                  type: int
+                  constraints:
+                    foreignKeyName: owner_phones_owner_id_fk
+                    referencedTableName: owners
+                    referencedColumnNames: id
+                    deleteCascade: true

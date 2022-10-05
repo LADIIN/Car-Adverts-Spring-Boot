@@ -1,0 +1,28 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-images
+      author: Vladislav
+      changes:
+        - createTable:
+            tableName: images
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: filepath
+                  type: varchar(256)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: advert_id
+                  type: int
+                  constraints:
+                    foreignKeyName: images_advert_id_fk
+                    referencedTableName: adverts
+                    referencedColumnNames: id
+                    deleteCascade: true
